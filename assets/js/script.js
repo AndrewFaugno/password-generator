@@ -9,10 +9,13 @@ function writePassword() {
   let numbers;
   let special;
 
+  // define length prompt
+  let length = (prompt('Please enter password length\n(8 - 128)'))
+
   // get password length, re-prompt if value is not a int between 8-128
   while (true) {
     if (length < 8 || length > 128) {
-      length = prompt('Please enter password length\n(8 - 128)')
+      length = prompt('Please enter valid password length\n(8 - 128)')
     } else {
       break;
     }
@@ -44,14 +47,14 @@ function writePassword() {
   }
 
   let passwordChars = upper.concat(lower, numbers, special);
-
+  console.log(length, passwordChars)
   var password = generatePassword(length, passwordChars);
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 }
 
-function generatePassword(legnth, passwordChars) {
+function generatePassword(length, passwordChars) {
   let password = '';
   for (let i = 0; i < length; i++) {
     let randomNumber = Math.floor(Math.random() * passwordChars.length);
