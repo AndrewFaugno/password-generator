@@ -47,7 +47,6 @@ function writePassword() {
   }
 
   let passwordChars = upper.concat(lower, numbers, special);
-  console.log(length, passwordChars)
   var password = generatePassword(length, passwordChars);
   var passwordText = document.querySelector("#password");
 
